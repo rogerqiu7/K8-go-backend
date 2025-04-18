@@ -67,6 +67,17 @@ Then access:
 - http://localhost:8080 - Main endpoint
 - http://localhost:8080/health - Health endpoint
 
+Should we able to see:
+
+{
+  "message": "Hello from Go backend!",
+  "version": "1.0.0"
+}
+
+and 
+
+OK
+
 ## Deploying to Minikube
 
 Follow these steps to deploy to Minikube:
