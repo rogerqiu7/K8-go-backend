@@ -59,25 +59,6 @@ To build and run the application with Docker:
 # Build the Docker image 
 docker build -t k8-go-backend:latest .
 
-# Run the container in docker from the image, use port 8080
-docker run -p 8080:8080 k8-go-backend:latest
-```
-
-Then access:
-- http://localhost:8080 - Main endpoint
-- http://localhost:8080/health - Health endpoint
-
-Should we able to see:
-
-{
-  "message": "Hello from Go backend!",
-  "version": "1.0.0"
-}
-
-and 
-
-OK
-
 ## Deploying to Minikube
 
 Follow these steps to deploy to Minikube:
@@ -89,10 +70,7 @@ Follow these steps to deploy to Minikube:
 
 2. **Build and load the image into Minikube**:
    ```bash
-   # Build the image locally
-   docker build -t k8-go-backend:latest .
-   
-   # Load it into Minikube
+   # Load the image from earlier into Minikube
    minikube image load k8-go-backend:latest
    ```
 
@@ -124,6 +102,17 @@ Follow these steps to deploy to Minikube:
    ```
    
    Then access http://localhost:8080 and http://localhost:8080/health
+
+   Should we able to see:
+
+    {
+    "message": "Hello from Go backend!",
+    "version": "1.0.0"
+    }
+
+    and 
+
+    OK
 
 ## Technical Implementation Details
 
