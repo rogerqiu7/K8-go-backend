@@ -1,0 +1,14 @@
+# Kubernetes Service configuration
+apiVersion: v1  # API version for Service resources
+kind: Service  # Type of Kubernetes resource
+metadata:
+  name: go-backend-service  # Name of the Service
+spec:
+  type: NodePort  # Service type that makes the service accessible on a static port on each Node
+  selector:  # Pod selector - the Service will route traffic to pods with this label
+    app: go-backend
+  ports:  # Port mappings
+    - protocol: TCP  # Network protocol
+      port: 80  # Port exposed by the Service
+      targetPort: 8080  # Port to forward to in the target pods
+      nodePort: 30001  # External port open on every node (accessible from outside the cluster)

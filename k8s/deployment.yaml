@@ -1,0 +1,21 @@
+# Kubernetes Deployment configuration
+apiVersion: apps/v1  # API version for Deployment resources
+kind: Deployment  # Type of Kubernetes resource
+metadata:
+  name: go-backend  # Name of the Deployment
+spec:
+  replicas: 2  # Number of pod replicas to run
+  selector:
+    matchLabels:  # Selector to identify which pods this Deployment manages
+      app: go-backend
+  template:  # Pod template specification
+    metadata:
+      labels:  # Labels applied to the pods created by this template
+        app: go-backend
+    spec:
+      containers:  # List of containers in the pod
+      - name: go-backend  # Name of the container
+        image: k8-go-backend:latest  # Docker image to use
+        imagePullPolicy: Never  # Don't try to pull the image, use local image only
+        ports:
+        - containerPort: 8080  # Port that the container exposes
